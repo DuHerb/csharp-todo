@@ -1,19 +1,38 @@
 @using ToDoList.Models;
 
-<h1>To Do List</h1>
-<ul>
-  @if (Model.Count == 0)
-  {
-    <p>You have no items in your to do list!</p>
-  }
-  @if(Model.Count != 0)
-  {
-    @foreach (Item item in Model)
-    {
-      <li>@item.GetDescription()</li>
-    }
-  }
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <link rel="stylesheet" href="~/css/styles.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Hello friend!</title>
+  </head>
+  <body>
+
+    <h1>To Do List</h1>
+    <ul>
+      @if (Model.Count == 0)
+      {
+        <p>You have no items in your to do list!</p>
+      }
+      @if(Model.Count != 0)
+      {
+        @foreach (Item item in Model)
+        {
+          <li><a href='/items/@item.GetId()'>@item.GetDescription()</a></li>
+        }
+      }
 
 
-</ul>
-<a href="/items/new">Add a new item.</a>
+    </ul>
+    <a href="/items/new">Add a new item.</a>
+
+    <form action="/items/delete" method="post">
+      <button class="btn btn-success" type="submit" name="button">Clear All Items</button>
+    </form>
+
+
+  </body>
+</html>

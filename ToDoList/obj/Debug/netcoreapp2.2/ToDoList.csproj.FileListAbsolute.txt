@@ -30,5 +30,8 @@
 /Users/Guest/Desktop/C-ToDoList/ToDoList/obj/Debug/netcoreapp2.2/ToDoList.RazorTargetAssemblyInfo.cs
 /Users/Guest/Desktop/C-ToDoList/ToDoList/obj/Debug/netcoreapp2.2/ToDoList.Views.pdb
 /Users/Guest/Desktop/C-ToDoList/ToDoList/obj/Debug/netcoreapp2.2/ToDoList.csproj.CopyComplete
-/Users/Guest/Desktop/C-ToDoList/ToDoList/obj/Debug/netcoreapp2.2/Razor/Views/Items/CreateForm.g.cshtml.cs
 /Users/Guest/Desktop/C-ToDoList/ToDoList/obj/Debug/netcoreapp2.2/Razor/Views/Items/Index.g.cshtml.cs
+/Users/Guest/Desktop/C-ToDoList/ToDoList/obj/Debug/netcoreapp2.2/Razor/Views/Items/DeleteAll.g.cshtml.cs
+/Users/Guest/Desktop/C-ToDoList/ToDoList/obj/Debug/netcoreapp2.2/Razor/Views/Items/New.g.cshtml.cs
+/Users/Guest/Desktop/C-ToDoList/ToDoList/obj/Debug/netcoreapp2.2/Razor/Views/Items/Show.g.cshtml.cs
+/Users/Guest/Desktop/C-ToDoList/ToDoList/obj/Debug/netcoreapp2.2/Razor/Views/Items/Destroy.g.cshtml.cs
