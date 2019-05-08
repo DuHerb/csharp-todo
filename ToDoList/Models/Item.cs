@@ -71,29 +71,26 @@ namespace ToDoList.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"SELECT * FROM 'items' WHERE id = @thisId;";
+      cmd.CommandText = @"SELECT * FROM `items` WHERE id = @thisId;";
       MySqlParameter thisId = new MySqlParameter();
-      thisId.ParameterName = "@thisid";
+      thisId.ParameterName = "@thisId";
       thisId.Value = id;
       cmd.Parameters.Add(thisId);
       var rdr = cmd.ExecuteReader() as MySqlDataReader;
       int itemId = 0;
       string itemDescription = "";
-      while(rdr.Read())
+      while (rdr.Read())
       {
-        itemId = rdr.GetInt32(0);
-        itemDescription = rdr.GetString(1);
+         itemId = rdr.GetInt32(0);
+         itemDescription = rdr.GetString(1);
       }
-      Item foundItem = new Item(itemDescription, itemId);
-
-      // more logic will go here!
-
-        conn.Close();
-        if (conn != null)
-        {
-          conn.Dispose();
-        }
-        return foundItem;
+      Item foundItem= new Item(itemDescription, itemId);  // This line is new!
+       conn.Close();
+       if (conn != null)
+       {
+         conn.Dispose();
+       }
+      return foundItem;  // This line is new!
     }
 
     public override bool Equals(System.Object otherItem)
@@ -128,6 +125,29 @@ namespace ToDoList.Models
        {
          conn.Dispose();
        }
+    }
+
+    public void Edit(string newDescription)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"UPDATE items SET description = @newDescription WHERE id = @searchId;";
+      MySqlParameter searchId = new MySqlParameter();
+      searchId.ParameterName = "@searchId";
+      searchId.Value = _id;
+      cmd.Parameters.Add(searchId);
+      MySqlParameter description = new MySqlParameter();
+      description.ParameterName = "@newDescription";
+      description.Value = newDescription;
+      cmd.Parameters.Add(description);
+      cmd.ExecuteNonQuery();
+      _description = newDescription; // <--- This line is new!
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
     }
 
   }
